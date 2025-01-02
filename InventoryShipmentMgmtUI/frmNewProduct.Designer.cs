@@ -41,36 +41,39 @@
             // lblQuantity
             // 
             this.lblQuantity.AutoSize = true;
-            this.lblQuantity.Location = new System.Drawing.Point(759, 98);
+            this.lblQuantity.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblQuantity.Location = new System.Drawing.Point(141, 207);
             this.lblQuantity.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblQuantity.Name = "lblQuantity";
-            this.lblQuantity.Size = new System.Drawing.Size(68, 20);
+            this.lblQuantity.Size = new System.Drawing.Size(73, 19);
             this.lblQuantity.TabIndex = 12;
             this.lblQuantity.Text = "Quantity";
             // 
             // lblPrice
             // 
             this.lblPrice.AutoSize = true;
-            this.lblPrice.Location = new System.Drawing.Point(474, 98);
+            this.lblPrice.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPrice.Location = new System.Drawing.Point(168, 157);
             this.lblPrice.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblPrice.Name = "lblPrice";
-            this.lblPrice.Size = new System.Drawing.Size(44, 20);
+            this.lblPrice.Size = new System.Drawing.Size(48, 19);
             this.lblPrice.TabIndex = 11;
             this.lblPrice.Text = "Price";
             // 
             // lblProduct
             // 
             this.lblProduct.AutoSize = true;
+            this.lblProduct.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblProduct.Location = new System.Drawing.Point(110, 98);
             this.lblProduct.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblProduct.Name = "lblProduct";
-            this.lblProduct.Size = new System.Drawing.Size(110, 20);
+            this.lblProduct.Size = new System.Drawing.Size(118, 19);
             this.lblProduct.TabIndex = 10;
             this.lblProduct.Text = "Product Name";
             // 
             // txtPrice
             // 
-            this.txtPrice.Location = new System.Drawing.Point(554, 94);
+            this.txtPrice.Location = new System.Drawing.Point(248, 153);
             this.txtPrice.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtPrice.Name = "txtPrice";
             this.txtPrice.Size = new System.Drawing.Size(148, 26);
@@ -79,7 +82,7 @@
             // 
             // txQuantity
             // 
-            this.txQuantity.Location = new System.Drawing.Point(866, 94);
+            this.txQuantity.Location = new System.Drawing.Point(248, 203);
             this.txQuantity.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txQuantity.Name = "txQuantity";
             this.txQuantity.Size = new System.Drawing.Size(148, 26);
@@ -96,7 +99,8 @@
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(357, 234);
+            this.btnSave.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSave.Location = new System.Drawing.Point(135, 288);
             this.btnSave.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(112, 35);
@@ -107,7 +111,8 @@
             // 
             // btnUpdate
             // 
-            this.btnUpdate.Location = new System.Drawing.Point(624, 234);
+            this.btnUpdate.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUpdate.Location = new System.Drawing.Point(284, 288);
             this.btnUpdate.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(112, 35);
@@ -120,7 +125,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1200, 692);
+            this.ClientSize = new System.Drawing.Size(629, 454);
             this.Controls.Add(this.btnUpdate);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.lblQuantity);

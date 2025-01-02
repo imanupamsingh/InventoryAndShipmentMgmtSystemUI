@@ -17,18 +17,24 @@ namespace InventoryShipmentMgmtUI
         private readonly ProductService prdService;
         private List<ProductResponse> productData;
 
-        public frmProductList()
+        public frmProductList(bool isComingFromDelete)
         {
             prdService = new ProductService();
             productData = new List<ProductResponse>();
             InitializeComponent();
-            _ = LoadAllProductsAsync();
+            var data = LoadAllProductsAsync(isComingFromDelete);
 
         }
-        public async Task LoadAllProductsAsync()
+        public async Task LoadAllProductsAsync(bool isComingFromDelete)
         {
             try
             {
+                if (!isComingFromDelete)
+                {
+                    dgvProductList.DataSource = null;
+                    dgvProductList.Columns.Clear();
+
+                }
                 var products = await prdService.GetProductsAsync();
                 productData = products.data;
                 if (products.statusCode == 200 && products.status)
@@ -70,7 +76,7 @@ namespace InventoryShipmentMgmtUI
         private void btnAddNew_Click(object sender, EventArgs e)
         {
             // Create an instance of Form2          
-            frmNewProduct newProduct = new frmNewProduct(0);
+            frmNewProduct newProduct = new frmNewProduct(0, this);
             // Show Form2
             newProduct.Show();
         }
@@ -114,15 +120,16 @@ namespace InventoryShipmentMgmtUI
             try
             {
                 ProductResponse productResponse = new ProductResponse();
+                // Retrieve the Product object from the clicked row
+                productResponse = productData[e.RowIndex];
                 if (e.RowIndex >= 0)
                 {
                     if (dgvProductList.Columns[e.ColumnIndex].Name == "Edit")
                     {
                         // Retrieve the Product object from the clicked row
-                        productResponse = productData[e.RowIndex];
-                        //   MessageBox.Show($"Edit {productResponse.productId}");
+                        //productResponse = productData[e.RowIndex];
                         // Create an instance of New Product Page          
-                        frmNewProduct newProduct = new frmNewProduct(productResponse.productId);
+                        frmNewProduct newProduct = new frmNewProduct(productResponse.productId, this);
                         // Show Form2
                         newProduct.Show();
                     }
@@ -134,13 +141,12 @@ namespace InventoryShipmentMgmtUI
                         if (confirmResult == DialogResult.Yes)
                         {
                             // Remove the selected person from the list
-                            //_productData.RemoveAt(e.RowIndex);
-                            productResponse = productData[e.RowIndex];
+                            //productResponse = productData[e.RowIndex];
                             _ = DeleteProductAsync(productResponse.productId);
 
                             // Refresh the DataGridView to reflect the changes
-                            dgvProductList.DataSource = null;  // Reset data binding
-                            dgvProductList.DataSource = productData;  // Rebind the updated data source
+                            //dgvProductList.DataSource = null;  // Reset data binding
+                            //dgvProductList.DataSource = productData;  // Rebind the updated data source
                         }
                     }
                 }
@@ -158,14 +164,16 @@ namespace InventoryShipmentMgmtUI
             {
                 if (productId > 0)
                 {
+                    ProductRequest productRequest = new ProductRequest();
                     var result = await prdService.DeleteProductAsync(productId);
                     if (result.statusCode == 200 && result.status)
                     {
                         MessageBox.Show($"Success: {result.responseMessage}");
-                        this.Close();
+                        //this.Close();
                         // Optionally, if the MainForm is not yet open, create a new instance of it
-                        frmProductList product = new frmProductList();
-                        product.Show();
+                        //frmProductList product = new frmProductList();
+                        //product.Show();
+                        _ = LoadAllProductsAsync(false);
                     }
                     else
                     {

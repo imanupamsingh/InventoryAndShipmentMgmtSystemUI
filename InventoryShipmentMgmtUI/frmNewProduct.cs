@@ -16,11 +16,13 @@ namespace InventoryShipmentMgmtUI
     {
         private readonly ProductService prdServices;
         private int prdtId;
-        public frmNewProduct(int prdtIds)
+        private frmProductList frmProductList;
+        public frmNewProduct(int prdtIds, frmProductList frmProduct)
         {
             prdServices = new ProductService();
             InitializeComponent();
             prdtId = prdtIds;
+            frmProductList = frmProduct;
             if (prdtId > 0)
             {
                 _ = GetProductById(prdtId);
@@ -74,10 +76,14 @@ namespace InventoryShipmentMgmtUI
                 if (result.statusCode == 200 && result.status)
                 {
                     MessageBox.Show($"Success: {result.responseMessage}");
+                    //this.Close();
+                    //// Optionally, if the MainForm is not yet open, create a new instance of it
+                    //frmProductList product = new frmProductList();
+                    //product.Show();
+                    // After adding the product, refresh the ProductListPage
+                    var productResult = frmProductList.LoadAllProductsAsync(false);
+                    // Close the new product form
                     this.Close();
-                    // Optionally, if the MainForm is not yet open, create a new instance of it
-                    frmProductList product = new frmProductList();
-                    product.Show();
                 }
                 else
                 {
@@ -132,11 +138,15 @@ namespace InventoryShipmentMgmtUI
                 if (result.statusCode == 200 && result.status)
                 {
                     MessageBox.Show($"Success: {result.responseMessage}");
-                    this.Close();
-                    // Optionally, if the MainForm is not yet open, create a new instance of it
+                    //this.Close();
+                    //// Optionally, if the MainForm is not yet open, create a new instance of it
 
-                    frmProductList product = new frmProductList();
-                    product.Show();
+                    //frmProductList product = new frmProductList();
+                    //product.Show();
+                    // After adding the product, refresh the ProductListPage
+                    var productResult = frmProductList.LoadAllProductsAsync(false);
+                    // Close the new product form
+                    this.Close();
                 }
                 else
                 {

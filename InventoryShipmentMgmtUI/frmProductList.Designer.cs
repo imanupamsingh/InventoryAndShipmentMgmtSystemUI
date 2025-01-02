@@ -36,7 +36,7 @@
             // dgvProductList
             // 
             this.dgvProductList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvProductList.Location = new System.Drawing.Point(126, 225);
+            this.dgvProductList.Location = new System.Drawing.Point(91, 225);
             this.dgvProductList.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dgvProductList.Name = "dgvProductList";
             this.dgvProductList.RowHeadersWidth = 62;
@@ -46,7 +46,8 @@
             // 
             // btnAddNew
             // 
-            this.btnAddNew.Location = new System.Drawing.Point(555, 142);
+            this.btnAddNew.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddNew.Location = new System.Drawing.Point(520, 142);
             this.btnAddNew.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnAddNew.Name = "btnAddNew";
             this.btnAddNew.Size = new System.Drawing.Size(172, 35);

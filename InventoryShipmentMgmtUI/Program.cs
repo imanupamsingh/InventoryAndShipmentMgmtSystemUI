@@ -16,7 +16,7 @@ namespace InventoryShipmentMgmtUI
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmProductList());
+            Application.Run(new frmProductList(false));
         }
     }
 }
